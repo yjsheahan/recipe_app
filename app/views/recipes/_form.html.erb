@@ -1,0 +1,16 @@
+<%= simple_form_for @recipe, html: { multipart: true } do |f| %>
+  <% if @recipe.errors.any? %>
+    <p><%= @recipe.errors.count %></p>
+    <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="panel-body">
+    <%= f.input :title, class: 'form-control' %>
+    <%= f.input :description, class: 'form-control' %>
+
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
