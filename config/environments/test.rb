@@ -48,5 +48,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Store uploaded files on the local file system in a temporary directory.
-  config.active_storage.service = :test
+  config.active_storage.service = :cloudinary
 end

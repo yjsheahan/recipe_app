@@ -1,4 +1,9 @@
-<%= image_tag @recipe.image %>
+<!-- <div class="recipe-image">
+</div> -->
+<% if @recipe.image.attached? %>
+  <%= cl_image_tag @recipe.image.key, width: 320, height: 320, crop: :fill %>
+<% end %>
+
 <h1><%= @recipe.title %></h1>
 <p><%= @recipe.description %></p>
 
