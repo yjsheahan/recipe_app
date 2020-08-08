@@ -6,12 +6,14 @@
 
 <h1><%= @recipe.title %></h1>
 <p><%= @recipe.description %></p>
-
+    <p>
+      Submitted by
+      - <%= @recipe.user.email %>
+    </p>
 <% if @recipe.ingredients.any? %>
   <h2>Ingredients</h2>
   <% @recipe.ingredients.each do |ingredient| %>
     <p><%= ingredient.name %></p>
-
     <br>
     <%= link_to "Add Ingredients", new_recipe_ingredient_path(@recipe) %>
   <% end %>
