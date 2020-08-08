@@ -11,13 +11,27 @@
   <h2>Ingredients</h2>
   <% @recipe.ingredients.each do |ingredient| %>
     <p><%= ingredient.name %></p>
+
+    <br>
+    <%= link_to "Add Ingredients", new_recipe_ingredient_path(@recipe) %>
   <% end %>
 <% else %>
-  <h2>Don't forget to add your ingredients!</h2>
+<%= link_to "Don't forget to add the ingredients!", new_recipe_ingredient_path(@recipe) %>
 <% end %>
 
-<%= link_to "Add Ingredients", new_recipe_ingredient_path(@recipe) %>
+<% if @recipe.directions.any? %>
+  <h2>Directions</h2>
+  <% @recipe.directions.each_with_index do |direction, index| %>
+    <p><%= direction.content %></p>
+    <br>
 
+    <%= link_to "Add Directions", new_recipe_direction_path(@recipe) %>
+  <% end %>
+<% else %>
+<%= link_to "How do you make this delicious treat?", new_recipe_direction_path(@recipe) %>
+<% end %>
+
+<hr>
 <%= link_to "Edit", edit_recipe_path, class: "btn btn-default" %>
 <%= link_to "Back", root_path, class: "btn btn-default" %>
 <%= link_to "Delete", recipe_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>

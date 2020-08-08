@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :recipes do
     resources :ingredients, only: [ :new, :create ]
+    resources :directions, only: [ :new, :create ]
   end
 
   root to: 'recipes#index'
