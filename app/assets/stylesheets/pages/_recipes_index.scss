@@ -1,6 +1,6 @@
 /* Hero styling */
 .hero {
-  height: 100vh;
+  height: 110vh;
   width: 100%;
   /* LEARN HOW TO USE ABSOLUTE AND RELATIVE */
   position: relative;
@@ -9,12 +9,13 @@
   background-image: linear-gradient(180deg, #B1D5E1, rgba(255,255,255,0));
   h1 {
     position: absolute;
-    top: 50%;
-    transform: translateY(-64%);
-    padding-left: 120px;
+    top: 64px;
+    // transform: translateY(-64%);
+    padding-left: 8vw;
 
     font-size: 136px;
     line-height: 0.8;
+    z-index: 3;
   }
   span {
     padding-left: 56px;
@@ -42,20 +43,27 @@
   }
 }
 
+.recipes-container {
+  padding-top: 128px;
+}
 
 .recipes-index-container {
   width: 100vw;
   min-height: 100vh;
 
   background-color: #FFF;
-  background-image: linear-gradient(180deg, #E5C9D6, rgba(255,255,255,0));
+  background-image: linear-gradient(180deg, #E1CFDE, rgba(255,255,255,0));
 
   position: relative;
 
+
   h1 {
-    font-size: 64px;
+    font-size: 80px;
     text-align: center;
-    padding-bottom: 32px;
+    position: absolute;
+    top: -32px;
+    left: 48px;
+    z-index: 3;
   }
 }
 
@@ -79,22 +87,23 @@ div.col {
 
 .recipe {
   position: relative;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 
   a {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.4);
   }
   h2 {
-
     text-transform: capitalize;
-    font-size: 64px;
+    font-size: 72px;
     text-align: left;
 
     position: absolute;
-    top: 0;
+    top: 24px;
     left: 0;
     padding-left: 16px;
     transition: display 0.8s ease;
+    transition: top 0.8s ease;
   }
   .image-wrapper img {
     opacity: 0.6;
@@ -102,21 +111,37 @@ div.col {
   }
 }
 
+// .recipe .image-wrapper:nth-child(even) {
+//   padding-top: 120px;
+// }
+
 .recipe:hover {
   img {
     opacity: 1;
-    width: 320px;
-    height: 320px;
+    width: 400px;
+    height: 360px;
   }
   h2 {
     font-size: 24px;
-    top: 280px;
+    top: 312px;
     width: 100%;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,0.4);
   }
   a {
     color: rgba(0,0,0,0.8);
   }
 }
 
-
+.cupcake-home {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 110vh;
+  z-index: 2;
+  background-image: url('https://res.cloudinary.com/dpzjvi2w1/image/upload/v1596998123/cupcake-home_opeszq.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  opacity: 0.4;
+}

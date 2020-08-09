@@ -9,11 +9,12 @@
       <p>Scroll for recipes...</p>
     </div>
     <!-- TODO Get image showing and reduce transparency -->
-    <img src="cupcake-home.jpg" alt="">
+    <div class="cupcake-home" style="background-image: url('https://res.cloudinary.com/dpzjvi2w1/image/upload/v1596998123/cupcake-home_opeszq.jpg');">
+    </div>
   </div>
 
   <div class="recipes-index-container">
-    <h1>Plant Based Treats</h1>
+    <h1>Plant Based Treats.</h1>
 
     <div class="recipes-container">
       <% @recipe.each_slice(3) do |recipes| %>
@@ -23,7 +24,7 @@
               <div class="recipe">
                 <div class="image-wrapper">
                   <%= link_to recipe do %>
-                    <%= cl_image_tag recipe.image.key, width: 280, height: 280, crop: :fill %>
+                    <%= cl_image_tag recipe.image.key, width: 360, height: 320, crop: :fill %>
                     <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
                   <% end %>
                 </div>
