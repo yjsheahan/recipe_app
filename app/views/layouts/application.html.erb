@@ -4,7 +4,6 @@
     <title>Recipe App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -13,8 +12,6 @@
 
   <body>
     <%= render "shared/navbar" %>
-
-    <div class="container">
       <!-- For Devise -->
       <p class="alert"><%= alert %></p>
 
@@ -22,7 +19,6 @@
         <%= content_tag :div, msg, class: "alert" %>
       <% end %>
       <%= yield %>
-    </div>
 
   </body>
 </html>

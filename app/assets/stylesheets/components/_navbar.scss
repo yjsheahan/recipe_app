@@ -1,25 +1,37 @@
 .nav-container {
   width: 100vw;
   height: 80px;
-  padding: 24px 40px;
+  padding-right: 16px;
+  // padding: 24px 40px;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 
-  border-bottom: solid 1px #CCC;
+  background: transparent;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
-.logo-box {
-  width: 32px;
-  height: 32px;
-  background-color: red;
-}
-
-.menu {
+.menu ul {
   display: flex;
-  align-items: center;
-  ul {
-    margin: 0;
+  justify-content: space-evenly;
+}
+
+.menu ul li {
+  list-style-type: none;
+  a {
+    text-decoration: none;
+    color: #000;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 12px;
+    transition: transform 0.8s ease;
+  }
+  a:hover {
+    transform: rotate(-180deg);
   }
 }
