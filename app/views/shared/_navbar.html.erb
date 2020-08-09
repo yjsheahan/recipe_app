@@ -1,15 +1,12 @@
-<div class="nav-container">
-  <div class="logo-box">
-  </div>
-
+<div class="nav-container nav">
   <div class="menu">
     <ul>
       <% if user_signed_in? %>
-        <%= link_to "New Recipe", new_recipe_path %>
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        <li class="nav-item"><%= link_to "New Recipe", new_recipe_path, class: "nav-link form-inline" %></li>
+        <li class="nav-item"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link form-inline" %></li>
       <% else %>
-        <%= link_to "Login", new_user_session_path %>
-        <%= link_to "Sign Up", new_user_registration_path %>
+        <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link form-inline" %></li>
+        <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link form-inline" %></li>
       <% end %>
     </ul>
   </div>
