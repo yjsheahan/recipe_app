@@ -87,7 +87,6 @@ div.col {
 
 .recipe {
   position: relative;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 
   a {
     text-decoration: none;
@@ -99,25 +98,21 @@ div.col {
     text-align: left;
 
     position: absolute;
-    top: 24px;
+    top: 0;
     left: 0;
     padding-left: 16px;
-    transition: display 0.8s ease;
+    transition: visibility 0.8s ease;
     transition: top 0.8s ease;
+    visibility: hidden;
   }
   .image-wrapper img {
-    opacity: 0.6;
     transition: opacity 0.8s ease;
   }
 }
 
-// .recipe .image-wrapper:nth-child(even) {
-//   padding-top: 120px;
-// }
-
 .recipe:hover {
   img {
-    opacity: 1;
+    opacity: 0.4;
     width: 400px;
     height: 360px;
   }
@@ -125,7 +120,8 @@ div.col {
     font-size: 24px;
     top: 312px;
     width: 100%;
-    background-color: rgba(255,255,255,0.4);
+    // background-color: rgba(255,255,255,0.4);
+    visibility: visible;
   }
   a {
     color: rgba(0,0,0,0.8);

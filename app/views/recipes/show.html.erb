@@ -1,39 +1,52 @@
-<!-- <div class="recipe-image">
-</div> -->
-<% if @recipe.image.attached? %>
-  <%= cl_image_tag @recipe.image.key, width: 320, height: 320, crop: :fill %>
-<% end %>
+<div class="show-container">
 
-<h1><%= @recipe.title %></h1>
-<p><%= @recipe.description %></p>
-    <p>
-      Submitted by
-      - <%= @recipe.user.email %>
-    </p>
-<% if @recipe.ingredients.any? %>
-  <h2>Ingredients</h2>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <p><%= ingredient.name %></p>
-    <br>
-    <%= link_to "Add Ingredients", new_recipe_ingredient_path(@recipe) %>
-  <% end %>
-<% else %>
-<%= link_to "Don't forget to add the ingredients!", new_recipe_ingredient_path(@recipe) %>
-<% end %>
+  <div class="row-1">
+    <% if @recipe.image.attached? %>
+      <%= cl_image_tag @recipe.image.key, width: 320, height: 320, crop: :fill %>
+    <% end %>
+    <div class="show-description">
+      <h1><%= @recipe.title %></h1>
+      <p><%= @recipe.description %></p>
+      <p>
+        Submitted by
+        - <%= @recipe.user.email %>
+      </p>
+      <div class="show-buttons">
+        <%= link_to "Edit", edit_recipe_path, class: "btn btn-default" %>
+        <%= link_to "Back", root_path, class: "btn btn-default" %>
+        <%= link_to "Delete", recipe_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
 
-<% if @recipe.directions.any? %>
-  <h2>Directions</h2>
-  <% @recipe.directions.each_with_index do |direction, index| %>
-    <p><%= direction.content %></p>
-    <br>
+  <div class="row-2">
+    <div class="ingredients-container">
+      <% if @recipe.ingredients.any? %>
+        <h2>Ingredients</h2>
+        <% @recipe.ingredients.each do |ingredient| %>
+          <p><%= ingredient.name %></p>
+          <br>
+        <% end %>
+        <%= link_to "Add Ingredients", new_recipe_ingredient_path(@recipe) %>
+      <% else %>
+      <%= link_to "Don't forget to add the ingredients!", new_recipe_ingredient_path(@recipe) %>
+      <% end %>
+    </div>
 
-    <%= link_to "Add Directions", new_recipe_direction_path(@recipe) %>
-  <% end %>
-<% else %>
-<%= link_to "How do you make this delicious treat?", new_recipe_direction_path(@recipe) %>
-<% end %>
+    <div class="directions-container">
+      <% if @recipe.directions.any? %>
+        <h2>Directions</h2>
+        <% @recipe.directions.each_with_index do |direction, index| %>
+          <p><%= direction.content %></p>
+          <br>
+        <% end %>
 
-<hr>
-<%= link_to "Edit", edit_recipe_path, class: "btn btn-default" %>
-<%= link_to "Back", root_path, class: "btn btn-default" %>
-<%= link_to "Delete", recipe_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+        <%= link_to "Add Directions", new_recipe_direction_path(@recipe) %>
+      <% else %>
+      <%= link_to "How do you make this delicious treat?", new_recipe_direction_path(@recipe) %>
+      <% end %>
+    </div>
+  </div>
+
+  <hr>
+</div>
