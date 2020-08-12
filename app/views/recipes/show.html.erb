@@ -2,9 +2,9 @@
 
   <div class="row-1">
     <% if @recipe.image.attached? %>
-      <%= cl_image_tag @recipe.image.key, width: 320, height: 320, crop: :fill %>
+      <%= cl_image_tag @recipe.image.key %>
     <% end %>
-    <div class="show-description">
+    <div class="show-description l-padding">
       <h1><%= @recipe.title %></h1>
       <p><%= @recipe.description %></p>
       <p>
@@ -23,9 +23,10 @@
     <div class="ingredients-container">
       <% if @recipe.ingredients.any? %>
         <h2>Ingredients</h2>
+        <hr>
         <% @recipe.ingredients.each do |ingredient| %>
           <p><%= ingredient.name %></p>
-          <br>
+          <hr>
         <% end %>
         <%= link_to "Add Ingredients", new_recipe_ingredient_path(@recipe) %>
       <% else %>
@@ -33,12 +34,13 @@
       <% end %>
     </div>
 
-    <div class="directions-container">
+    <div class="directions-container l-padding">
       <% if @recipe.directions.any? %>
         <h2>Directions</h2>
         <% @recipe.directions.each_with_index do |direction, index| %>
-          <p><%= direction.content %></p>
-          <br>
+          <div class="direction-single">
+            <h6><%= index + 1 %></h6><p><%= direction.content %></p>
+          </div>
         <% end %>
 
         <%= link_to "Add Directions", new_recipe_direction_path(@recipe) %>
@@ -50,3 +52,5 @@
 
   <hr>
 </div>
+
+<hr>
