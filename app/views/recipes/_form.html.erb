@@ -11,6 +11,16 @@
     <%= f.input :title, class: 'form-control' %>
     <%= f.input :description, class: 'form-control' %>
     <%= f.input :image, as: :file %>
+    <%= f.input :prep_time, class: 'form-control' %>
+    <%= f.input :cooking_time, class: 'form-control' %>
+    <%= f.input :difficulty, as: :radio_buttons,
+    collection: [
+      "Easy peasy",
+      "A little challenging",
+      "Difficult",
+      "A toughy, for pros only!"],
+      class: 'form-control' %>
+    <%= f.input :servings, class: 'form-control' %>
 
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
