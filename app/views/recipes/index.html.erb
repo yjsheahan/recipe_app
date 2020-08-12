@@ -1,3 +1,4 @@
+<%= render 'shared/navbar' %>
 <div class="index-container">
   <div class="hero">
     <h1>
@@ -5,9 +6,15 @@
       <br>
       <span>Bakes.</span>
     </h1>
+    <% if user_signed_in? %>
+      <h6>Welcome back!</h6>
+    <% else %>
+      <h6>A place to exchange tried and tested vegan baking recipes!</h6>
+    <% end %>
     <div class="hero-circle">
       <p>Scroll for recipes...</p>
     </div>
+
     <!-- TODO Get image showing and reduce transparency -->
     <div class="cupcake-home" style="background-image: url('https://res.cloudinary.com/dpzjvi2w1/image/upload/v1596998123/cupcake-home_opeszq.jpg');">
     </div>
@@ -34,8 +41,9 @@
         </div>
       <% end %>
     </div>
+    <div class="bottom-row">
+      <%= link_to "Edit/Delete Account", edit_user_registration_path %>
+    </div>
   </div>
-
 </div>
 
-<%= link_to "Edit/Delete Account", edit_user_registration_path %>
