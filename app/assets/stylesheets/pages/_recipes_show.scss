@@ -1,1 +1,70 @@
+div.show-container {
+  width: 100vw;
+  min-height: 100vh;
 
+  background-color: #FFF;
+  // background-image: linear-gradient(180deg, #E1CFDE, rgba(255,255,255,0));
+}
+
+div.show-container p {
+  margin: 0;
+}
+
+div.show-container a {
+  padding-left: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: color 0.8s ease;
+}
+
+div.show-container a:hover {
+  color: #B1D5E1;
+}
+
+div.row-1, div.row-2 {
+  display: flex;
+
+  padding: 112px 200px 32px 200px;
+}
+
+div.row-1 img {
+  width: 40vw;
+  height: auto;
+
+}
+
+div.row-1 .show-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.row-2 {
+  flex-direction: space-evenly;
+}
+
+div.row-2 .ingredients-container p {
+  padding-left: 16px;
+  line-height: 1.5;
+}
+
+div.row-2 .direction-single {
+  display: flex;
+  align-items: center;
+  padding-bottom: 32px;
+}
+
+div.row-2 .direction-single h6 {
+  font-family: 'Roboto Condensed', sans-serif;
+  padding-right: 32px;
+  font-size: 32px;
+
+}
+
+div.row-2 .directions-container {
+  padding-left: 120px;
+}
+
+div.l-padding {
+  padding-left: 88px;
+}
