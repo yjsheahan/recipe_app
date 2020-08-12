@@ -18,7 +18,7 @@
   h1 {
     line-height: 0.75;
     transition: font-size 0.8s ease;
-
+    font-size: 64px;
   }
 
   h1 span {
@@ -36,7 +36,11 @@
     text-decoration: none;
   }
   h1:hover {
-    font-size: 64px;
+    font-size: 88px;
+  }
+  h6 {
+    font-size: 24px;
+    padding-top: 24px;
   }
 }
 
@@ -60,7 +64,7 @@
   padding-top: 0;
 }
 
-.signup-box label {
+.signup-box label, .signup-box legend {
   text-transform: uppercase;
   font-weight: bold;
 }
