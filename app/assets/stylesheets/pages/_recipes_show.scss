@@ -1,70 +1,183 @@
-div.show-container {
+.show-container {
   width: 100vw;
   min-height: 100vh;
-
-  background-color: #FFF;
-  // background-image: linear-gradient(180deg, #E1CFDE, rgba(255,255,255,0));
-}
-
-div.show-container p {
-  margin: 0;
-}
-
-div.show-container a {
-  padding-left: 0;
-  text-transform: uppercase;
-  font-weight: bold;
-  transition: color 0.8s ease;
-}
-
-div.show-container a:hover {
-  color: #B1D5E1;
-}
-
-div.row-1, div.row-2 {
-  display: flex;
-
-  padding: 112px 200px 32px 200px;
-}
-
-div.row-1 img {
-  width: 40vw;
-  height: auto;
-
-}
-
-div.row-1 .show-description {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  // justify-content: space-between;
+}
+
+.show-container img {
+  width: 60vw;
+  height: auto;
+}
+
+.show-container .row-1 {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.show-container .row-1 .show-description {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40vw;
+  padding: 0 24px;
+}
+
+.show-container h1, .show-container h2, .direction-single h6 {
+  font-family: "Roboto Condensed", "sans-serif", 'Helvetica';
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-top: 64px;
+}
+
+.show-container {
+  h1, h2 {
+    padding-bottom: 24px;
+  }
+}
+
+.show-container h1, .show-container p {
+  text-align: center;
+  margin: 0;
+  line-height: 2;
+  span {
+    font-weight: bold;
+  }
+}
+
+.show-numbers {
+  padding: 48px 0;
+}
+
+.show-buttons {
+  display: flex;
   justify-content: center;
+  width: 20vw;
+  a {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    transition: font-size 0.8s ease;
+  }
+  a:hover {
+    font-size: 16px;
+  }
 }
 
-div.row-2 {
-  flex-direction: space-evenly;
+.row-2 {
+  width: 880px;
+  margin-top: 96px;
+  padding-bottom: 64px;
+
+  display: flex;
+  justify-content: space-between;
+  .ingredients-container {
+    width: 320px;
+  }
+  .directions-container {
+    width: 480px;
+  }
 }
 
-div.row-2 .ingredients-container p {
-  padding-left: 16px;
-  line-height: 1.5;
+.ingredients-container {
+  p, h2 {
+    text-align: left;
+  }
+  p {
+    line-height: 1;
+  }
 }
 
-div.row-2 .direction-single {
+.direction-single {
   display: flex;
   align-items: center;
-  padding-bottom: 32px;
+  padding-bottom: 40px;
+  p {
+    text-align: left;
+    line-height: 2;
+  }
+  h6 {
+    padding-right: 40px;
+    padding-top: 0;
+  }
 }
 
-div.row-2 .direction-single h6 {
-  font-family: 'Roboto Condensed', sans-serif;
-  padding-right: 32px;
-  font-size: 32px;
 
+/* Customize the label (the container) */
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 40px;
+  // margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-div.row-2 .directions-container {
-  padding-left: 120px;
+label {
+  margin: 0;
+  padding: 0;
+  height: 25px;
 }
 
-div.l-padding {
-  padding-left: 88px;
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #E5C9D6;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

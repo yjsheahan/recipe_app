@@ -25,7 +25,7 @@ before_action :find_recipe, except: [ :destroy ]
   private
 
   def direction_params
-    params.require(:direction).permit(:content)
+    params.require(:direction).permit(:content, :recipe_id)
   end
 
   def find_recipe
