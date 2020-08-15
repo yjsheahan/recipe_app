@@ -1,44 +1,64 @@
 <div class="show-container">
 
-  <div class="row-1">
+  <div class="row-1 flex">
     <% if @recipe.image.attached? %>
       <%= cl_image_tag @recipe.image.key %>
     <% end %>
     <div class="show-description l-padding">
-      <h1><%= @recipe.title %></h1>
-      <p><%= @recipe.description %></p>
-      <p><%= @recipe.prep_time %></p>
-      <p><%= @recipe.cooking_time %></p>
-      <p><%= @recipe.difficulty %></p>
-      <p><%= @recipe.servings %></p>
-      <p>
-        Submitted by
-        - <%= @recipe.user.name %>
-      </p>
-      <div class="show-buttons">
-        <%= link_to "Edit", edit_recipe_path, class: "btn btn-default" %>
-        <%= link_to "Back", root_path, class: "btn btn-default" %>
-        <%= link_to "Delete", recipe_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+      <div>
+        <h1><%= @recipe.title %></h1>
+        <p>
+          By
+          - <%= @recipe.user.name %>
+        <br>
+          <%= @recipe.description %></p>
       </div>
+
+      <div class="show-numbers">
+        <p><span>Prep time:</span> <%= @recipe.prep_time %> minutes</p>
+        <p><span>Cooking time:</span> <%= @recipe.cooking_time %> minutes</p>
+        <p><span>Difficulty: </span><%= @recipe.difficulty %></p>
+        <p><span>Serving size: </span><%= @recipe.servings %></p>
+      </div>
+
+      <% if user_signed_in? && current_user === @recipe.user %>
+        <div class="show-buttons">
+          <%= link_to "Edit", edit_recipe_path, class: "btn btn-default button" %>
+        </div>
+      <% end %>
+
     </div>
   </div>
+
 
   <div class="row-2">
     <div class="ingredients-container">
       <% if @recipe.ingredients.any? %>
         <h2>Ingredients</h2>
-        <hr>
-        <% @recipe.ingredients.each do |ingredient| %>
-          <p><%= ingredient.name %></p>
+<!--         <hr>
+ -->        <% @recipe.ingredients.each do |ingredient| %>
+          <label class="container">
+            <p><%= ingredient.name %></p>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
           <hr>
         <% end %>
-        <%= link_to "Add Ingredients", new_recipe_ingredient_path(@recipe) %>
+
+        <% if user_signed_in? && current_user === @recipe.user %>
+          <%= link_to "Add Ingredients", new_recipe_ingredient_path(@recipe) %>
+        <% end %>
+
       <% else %>
-      <%= link_to "Don't forget to add the ingredients!", new_recipe_ingredient_path(@recipe) %>
+
+        <% if user_signed_in? && current_user === @recipe.user %>
+          <%= link_to "Don't forget to add the ingredients!", new_recipe_ingredient_path(@recipe) %>
+        <% end %>
+
       <% end %>
     </div>
 
-    <div class="directions-container l-padding">
+    <div class="directions-container">
       <% if @recipe.directions.any? %>
         <h2>Directions</h2>
         <% @recipe.directions.each_with_index do |direction, index| %>
@@ -47,14 +67,23 @@
           </div>
         <% end %>
 
-        <%= link_to "Add Directions", new_recipe_direction_path(@recipe) %>
+        <% if user_signed_in? && current_user === @recipe.user %>
+          <%= link_to "Add Directions", new_recipe_direction_path(@recipe) %>
+        <% end %>
+
       <% else %>
-      <%= link_to "How do you make this delicious treat?", new_recipe_direction_path(@recipe) %>
+
+        <% if user_signed_in? && current_user === @recipe.user %>
+          <%= link_to "How do you make this delicious treat?", new_recipe_direction_path(@recipe) %>
+        <% end %>
+
       <% end %>
     </div>
   </div>
 
-  <hr>
 </div>
 
-<hr>
+
+
+
+
