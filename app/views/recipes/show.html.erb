@@ -46,13 +46,13 @@
         <% end %>
 
         <% if user_signed_in? && current_user === @recipe.user %>
-          <%= link_to "Add Ingredients", new_recipe_ingredient_path(@recipe) %>
+          <%= link_to "Add another ingredient", new_recipe_ingredient_path(@recipe) %>
         <% end %>
 
       <% else %>
 
         <% if user_signed_in? && current_user === @recipe.user %>
-          <%= link_to "Don't forget to add the ingredients!", new_recipe_ingredient_path(@recipe) %>
+          <%= link_to "Start adding some ingredients!", new_recipe_ingredient_path(@recipe) %>
         <% end %>
 
       <% end %>
@@ -68,13 +68,13 @@
         <% end %>
 
         <% if user_signed_in? && current_user === @recipe.user %>
-          <%= link_to "Add Directions", new_recipe_direction_path(@recipe) %>
+          <%= link_to "Add next step", new_recipe_direction_path(@recipe) %>
         <% end %>
 
       <% else %>
 
         <% if user_signed_in? && current_user === @recipe.user %>
-          <%= link_to "How do you make this delicious treat?", new_recipe_direction_path(@recipe) %>
+          <%= link_to "Ready to add the directions?", new_recipe_direction_path(@recipe) %>
         <% end %>
 
       <% end %>

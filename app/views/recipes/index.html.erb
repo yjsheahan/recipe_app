@@ -5,11 +5,7 @@
       <br>
       <span>Bakes.</span>
     </h1>
-    <% if user_signed_in? %>
-      <h6>Welcome back!</h6>
-    <% else %>
-      <h6>A place to exchange tried and tested vegan baking recipes!</h6>
-    <% end %>
+
     <div class="hero-circle">
       <p>Scroll for recipes...</p>
     </div>
@@ -20,26 +16,40 @@
   </div>
 
   <div class="recipes-index-container">
-    <h1>Plant Based Treats.</h1>
+    <h1>All Recipes.</h1>
 
     <div class="recipes-container">
+
       <% @recipe.each_slice(3) do |recipes| %>
+
         <div class="row">
           <% recipes.each do |recipe| %>
+
             <div class="col">
+
               <div class="recipe">
-                <div class="image-wrapper">
-                  <%= link_to recipe do %>
-                    <%= cl_image_tag recipe.image.key, width: 360, height: 320, crop: :fill %>
-                    <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
-                  <% end %>
-                </div>
+
+                <%= link_to recipe do %>
+                  <%= cl_image_tag recipe.image.key, width: 360, height: 320, crop: :fill %>
+                  <div class="recipe-info">
+                    <h2><%= recipe.title %></h2>
+                    <p><span>Prep time: </span><%= recipe.prep_time %></p>
+                    <p><span>Cooking time: </span><%= recipe.cooking_time %></p>
+                    <p><span>Difficulty: </span><%= recipe.difficulty %></p>
+                    <p><span>Serving size: </span><%= recipe.servings %></p>
+                  </div>
+                <% end %>
+
               </div>
+
             </div>
+
           <% end %>
         </div>
+
       <% end %>
     </div>
+
     <div class="bottom-row">
       <%= link_to "Edit/Delete Account", edit_user_registration_path %>
     </div>
