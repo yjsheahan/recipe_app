@@ -1,10 +1,12 @@
 <div class="index-container">
   <div class="hero">
-    <h1>
-      Vegan
-      <br>
-      <span>Bakes.</span>
-    </h1>
+    <div class="js-test">
+      <h1>
+        Vegan
+        <br>
+        _Bakes.
+      </h1>
+    </div>
 
     <div class="hero-circle">
       <p>Scroll for recipes...</p>
@@ -33,10 +35,10 @@
                   <%= cl_image_tag recipe.image.key, width: 360, height: 320, crop: :fill %>
                   <div class="recipe-info">
                     <h2><%= recipe.title %></h2>
-                    <p><span>Prep time: </span><%= recipe.prep_time %></p>
-                    <p><span>Cooking time: </span><%= recipe.cooking_time %></p>
+                    <p><span>Prep time: </span><%= recipe.prep_time %> minutes</p>
+                    <p><span>Cooking time: </span><%= recipe.cooking_time %> minutes</p>
                     <p><span>Difficulty: </span><%= recipe.difficulty %></p>
-                    <p><span>Serving size: </span><%= recipe.servings %></p>
+                    <p>Makes <%= recipe.servings %> servings</p>
                   </div>
                 <% end %>
 
