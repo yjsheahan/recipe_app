@@ -20,7 +20,20 @@ before_action :find_recipe, except: [ :destroy ]
   #     redirect_to recipe_path(@recipe)
   #   end
   # end
+  def edit
+    @direction = direction.find(params[:id])
+  end
 
+  def update
+    @direction = direction.find(params[:id])
+    @direction.update(direction_params)
+  end
+
+  def destroy
+    @direction = direction.find(params[:id])
+    @direction.destroy
+    redirect_to recipe_path(@recipe), notice: "Successfully deleted direction."
+  end
 
   private
 

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :recipes do
-    resources :ingredients, only: [ :new, :create ]
-    resources :directions, only: [ :new, :create ]
+    resources :ingredients, only: [ :new, :create, :edit, :update, :destroy ]
+    resources :directions, only: [ :new, :create, :edit, :update, :destroy ]
   end
 
   root to: 'recipes#index'

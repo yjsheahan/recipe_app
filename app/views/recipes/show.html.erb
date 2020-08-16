@@ -25,6 +25,19 @@
       <% if user_signed_in? && current_user === @recipe.user %>
         <div class="show-buttons">
           <%= link_to "Edit", edit_recipe_path, class: "btn btn-default button" %>
+
+          <% if @recipe.ingredients.any? %>
+
+          <% else %>
+              <%= link_to "Add some ingredients!", new_recipe_ingredient_path(@recipe), class: "btn btn-default button" %>
+          <% end %>
+
+          <% if @recipe.directions.any? %>
+
+          <% else %>
+            <%= link_to "Add the directions!", new_recipe_direction_path(@recipe), class: "btn btn-default button" %>
+          <% end %>
+
         </div>
       <% end %>
 
@@ -43,17 +56,12 @@
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
+
           <hr>
         <% end %>
 
         <% if user_signed_in? && current_user === @recipe.user %>
-          <%= link_to "Add another ingredient", new_recipe_ingredient_path(@recipe) %>
-        <% end %>
-
-      <% else %>
-
-        <% if user_signed_in? && current_user === @recipe.user %>
-          <%= link_to "Start adding some ingredients!", new_recipe_ingredient_path(@recipe) %>
+          <%= link_to "Add another ingredient", new_recipe_ingredient_path(@recipe), class: "btn btn-default button" %>
         <% end %>
 
       <% end %>
@@ -69,15 +77,8 @@
         <% end %>
 
         <% if user_signed_in? && current_user === @recipe.user %>
-          <%= link_to "Add next step", new_recipe_direction_path(@recipe) %>
+          <%= link_to "Add next step", new_recipe_direction_path(@recipe), class: "btn btn-default button" %>
         <% end %>
-
-      <% else %>
-
-        <% if user_signed_in? && current_user === @recipe.user %>
-          <%= link_to "Ready to add the directions?", new_recipe_direction_path(@recipe) %>
-        <% end %>
-
       <% end %>
     </div>
   </div>
