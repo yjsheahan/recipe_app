@@ -11,7 +11,7 @@
           <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link form-inline" %></li>
         <% end %>
 
-      <% elsif controller_name == "recipes" && action_name == 'show' %>
+      <% elsif controller_name == "recipes" && ( action_name == 'show' || action_name == 'edit' ) %>
 
         <% if user_signed_in? && current_user === @recipe.user  %>
           <li class="nav-item"><%= link_to "Back to Recipes", recipes_path, class: "nav-link form-inline" %></li>
@@ -23,6 +23,10 @@
           <li class="nav-item"><%= link_to "Add New Recipe", new_recipe_path, class: "nav-link form-inline" %></li>
           <li class="nav-item"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link form-inline" %></li>
         <% end %>
+
+        <% elsif controller_name == 'ingredients' && action_name == 'new' %>
+
+        <% elsif controller_name == 'directions' && action_name == 'new' %>
 
       <% else %>
         <li class="nav-item"><%= link_to "Back to Recipes", recipes_path, class: "nav-link form-inline" %></li>

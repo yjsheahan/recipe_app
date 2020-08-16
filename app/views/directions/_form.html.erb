@@ -1,4 +1,10 @@
-<%= simple_form_for [@recipe, @direction] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+<div class="signup-box">
+  <%= simple_form_for [@recipe, @direction] do |f| %>
+    <%= f.input :content, placeholder: "Preheat the oven to 350F, 180C." %>
+
+    <div class="form-actions">
+      <%= f.submit class: "btn btn-default button" %>
+      <%= link_to "Back to recipe", recipe_path(@recipe) %>
+    </div>
+  <% end %>
+</div>

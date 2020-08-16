@@ -35,10 +35,18 @@
                   <%= cl_image_tag recipe.image.key, width: 360, height: 320, crop: :fill %>
                   <div class="recipe-info">
                     <h2><%= recipe.title %></h2>
-                    <p><span>Prep time: </span><%= recipe.prep_time %> minutes</p>
-                    <p><span>Cooking time: </span><%= recipe.cooking_time %> minutes</p>
-                    <p><span>Difficulty: </span><%= recipe.difficulty %></p>
-                    <p>Makes <%= recipe.servings %> servings</p>
+                    <% if recipe.prep_time.present? %>
+                      <p><span>Prep time: </span><%= recipe.prep_time %> minutes</p>
+                    <% end %>
+                    <% if recipe.cooking_time.present? %>
+                      <p><span>Cooking time: </span><%= recipe.cooking_time %> minutes</p>
+                    <% end %>
+                    <% if recipe.difficulty.present? %>
+                      <p><span>Difficulty: </span><%= recipe.difficulty %></p>
+                    <% end %>
+                    <% if recipe.servings.present? %>
+                      <p>Makes <%= recipe.servings %> servings</p>
+                    <% end %>
                   </div>
                 <% end %>
 
