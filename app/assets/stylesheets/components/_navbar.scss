@@ -28,6 +28,9 @@
 .menu ul {
   display: flex;
   justify-content: space-evenly;
+  margin: 0;
+  padding-left: 0;
+  // background-color: #F4F4F4;
 }
 
 .menu ul li {
