@@ -1,6 +1,7 @@
 <div class="show-container">
 
   <div class="row-1 flex">
+
     <% if @recipe.image.attached? %>
       <%= cl_image_tag @recipe.image.key %>
     <% end %>
