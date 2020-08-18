@@ -1,62 +1,61 @@
 <div class="index-container">
   <div class="hero">
-    <div class="js-test">
+    <div class="hero-content">
       <h1>
         Vegan
         <br>
-        _Bakes.
+        Bakes.
       </h1>
+
     </div>
 
-    <div class="hero-circle">
-      <p>Tried and tested vegan recipes for baked treats!</p>
-      <p>Scroll for recipes...</p>
-    </div>
+  </div>
+
+
+    <div class="hero-text">
+<!--       <h4>Tried and tested vegan recipes for baked treats!</h4>
+ --><!--       <h4 class="roboto">Scroll for recipes...</h4>
+ -->    </div>
 
     <!-- TODO Get image showing and reduce transparency -->
     <div class="cupcake-home" style="background-image: url('https://res.cloudinary.com/dpzjvi2w1/image/upload/v1596998123/cupcake-home_opeszq.jpg');">
     </div>
+
   </div>
 
+
+
   <div class="recipes-index-container">
+
     <h1>All Recipes.</h1>
 
     <div class="recipes-container">
+      <% @recipes.each do |recipe| %>
 
-      <% @recipe.each_slice(3) do |recipes| %>
+          <div class="recipe">
+            <div class="box">
 
-        <div class="row">
-          <% recipes.each do |recipe| %>
-
-            <div class="col">
-
-              <div class="recipe">
-
-                <%= link_to recipe do %>
-                  <%= cl_image_tag recipe.image.key, width: 360, height: 320, crop: :fill %>
-                  <div class="recipe-info">
-                    <h2><%= recipe.title %></h2>
-                    <% if recipe.prep_time.present? %>
-                      <p><span>Prep time: </span><%= recipe.prep_time %> minutes</p>
-                    <% end %>
-                    <% if recipe.cooking_time.present? %>
-                      <p><span>Cooking time: </span><%= recipe.cooking_time %> minutes</p>
-                    <% end %>
-                    <% if recipe.difficulty.present? %>
-                      <p><span>Difficulty: </span><%= recipe.difficulty %></p>
-                    <% end %>
-                    <% if recipe.servings.present? %>
-                      <p>Makes <%= recipe.servings %> servings</p>
-                    <% end %>
-                  </div>
+            <%= link_to recipe do %>
+              <%= cl_image_tag recipe.image.key, width: 280, height: 280, crop: :fill %>
+              <div class="recipe-info">
+                <h2><%= recipe.title %></h2>
+                <% if recipe.prep_time.present? %>
+                  <p><span>Prep time: </span><%= recipe.prep_time %> minutes</p>
                 <% end %>
-
+                <% if recipe.cooking_time.present? %>
+                  <p><span>Cooking time: </span><%= recipe.cooking_time %> minutes</p>
+                <% end %>
+                <% if recipe.difficulty.present? %>
+                  <p><span>Difficulty: </span><%= recipe.difficulty %></p>
+                <% end %>
+                <% if recipe.servings.present? %>
+                  <p>Makes <%= recipe.servings %> servings</p>
+                <% end %>
               </div>
+            <% end %>
+          </div>
 
-            </div>
-
-          <% end %>
-        </div>
+          </div>
 
       <% end %>
     </div>

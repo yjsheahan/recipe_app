@@ -1,93 +1,87 @@
 .show-container {
   width: 100vw;
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   background-color: #FFF;
+
+  padding-bottom: 24px;
+
+  h1, p, span {
+    text-align: center;
+    margin: 0;
+    line-height: 2;
+  }
+  span {
+    font-weight: bold;
+  }
 }
 
-.show-container img {
-  width: 60vw;
-  height: inherit;
-  z-index: 3;
-}
 
-.show-container .row-1 {
+.row-1 {
   display: flex;
+
   width: 100vw;
   height: 100vh;
-}
+  img {
+    width: 60vw;
+    height: inherit;
 
-.show-container .row-1 .show-description {
+    // z-index: 3;
+  }
+  .show-description {
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: space-evenly;
   align-items: center;
+
   width: 40vw;
   padding: 0 24px;
+  }
 }
 
-.show-container h1, .show-container h2, .direction-single h6 {
+// Sans Serif font for h1, h2 and h6 on the show page
+.roboto {
   font-family: "Roboto Condensed", "sans-serif", 'Helvetica';
   text-transform: uppercase;
   font-weight: bold;
   padding-top: 64px;
 }
 
-.show-container {
-  h1, h2 {
-    padding-bottom: 24px;
-  }
-}
-
-.show-container h1, .show-container p {
-  text-align: center;
-  margin: 0;
-  line-height: 2;
-  span {
-    font-weight: bold;
-  }
-}
-
 .show-numbers {
   padding: 48px 0;
 }
 
-.show-buttons {
-  display: flex;
-  justify-content: center;
-  width: 20vw;
-}
-
-.show-buttons a, .ingredients-container a, .directions-container a {
+.links {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 12px;
-  transition: font-size 0.8s ease;
+  transition: text-decoration 0.8s ease;
 }
 
 .show-buttons a:hover, .ingredients-container a:hover, .directions-container a:hover {
-  font-size: 16px;
+  text-decoration: underline;
 }
 
 .row-2 {
   width: 880px;
+
   margin-top: 96px;
   padding-bottom: 64px;
 
   display: flex;
   justify-content: space-between;
-  .ingredients-container {
-    width: 320px;
-  }
   .directions-container {
     width: 480px;
   }
 }
 
 .ingredients-container {
+  width: 320px;
   p, h2 {
     text-align: left;
   }
@@ -99,6 +93,7 @@
 .direction-single {
   display: flex;
   align-items: center;
+
   padding-bottom: 40px;
   p {
     text-align: left;
@@ -110,7 +105,12 @@
   }
 }
 
+.phone {
+  visibility: hidden;
+}
 
+
+// CHECKBOXES FOR INGREDIENTS
 /* Customize the label (the container) */
 .container {
   display: flex;
@@ -183,4 +183,81 @@ label {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+
+@media (max-width: 1024px) {
+  .row-2 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .ingredients-container h2, .directions-container h2 {
+    text-align: center;
+    padding-bottom: 24px;
+  }
+  .links {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .row-1 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+  }
+  .row-1 img {
+    width: 100vw;
+    height: auto;
+  }
+
+  .show-description {
+    padding-bottom: 32px !important;
+    width: 100vw !important;
+    border-bottom: solid 1px #000;
+  }
+
+  .row-2 {
+    margin-top: 40px;
+  }
+  .mobile-nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .ingredients-container {
+    width: 360px !important;
+  }
+  .directions-container {
+    width: 360px !important;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .direction-single h6 {
+    padding-right: 24px;
+  }
+  // .links a {
+  //   padding-bottom: 48px !important;
+  // }
+  // .phone {
+  //   visibility: visible;
+  // }
+}
+
+@media (max-width: 414px) {
+  .ingredients-container, .directions-container {
+    width: 280px !important;
+  }
+  .mobile-nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
