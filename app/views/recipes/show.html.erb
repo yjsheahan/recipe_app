@@ -7,7 +7,7 @@
     <% end %>
     <div class="show-description l-padding">
       <div>
-        <h1><%= @recipe.title %></h1>
+        <h1 class="roboto head-b-padding"><%= @recipe.title %></h1>
         <p>
           By
           - <%= @recipe.user.name %>
@@ -23,7 +23,7 @@
       </div>
 
       <% if user_signed_in? && current_user === @recipe.user %>
-        <div class="show-buttons">
+        <div class="form-actions">
           <%= link_to "Edit", edit_recipe_path, class: "btn btn-default button" %>
 
           <% if @recipe.ingredients.any? %>
@@ -48,7 +48,7 @@
   <div class="row-2">
     <div class="ingredients-container">
       <% if @recipe.ingredients.any? %>
-        <h2>Ingredients</h2>
+        <h2 class="roboto head-b-padding">Ingredients</h2>
 <!--         <hr>
  -->        <% @recipe.ingredients.each do |ingredient| %>
           <label class="container">
@@ -61,7 +61,7 @@
         <% end %>
 
         <% if user_signed_in? && current_user === @recipe.user %>
-          <%= link_to "Add another ingredient", new_recipe_ingredient_path(@recipe), class: "btn btn-default button" %>
+          <%= link_to "Add another ingredient", new_recipe_ingredient_path(@recipe), class: "btn btn-default links" %>
         <% end %>
 
       <% end %>
@@ -69,20 +69,26 @@
 
     <div class="directions-container">
       <% if @recipe.directions.any? %>
-        <h2>Directions</h2>
+        <h2 class="roboto head-b-padding">Directions</h2>
         <% @recipe.directions.each_with_index do |direction, index| %>
           <div class="direction-single">
-            <h6><%= index + 1 %></h6><p><%= direction.content %></p>
+            <h6 class="roboto"><%= index + 1 %></h6><p><%= direction.content %></p>
           </div>
         <% end %>
 
         <% if user_signed_in? && current_user === @recipe.user %>
-          <%= link_to "Add next step", new_recipe_direction_path(@recipe), class: "btn btn-default button" %>
+          <%= link_to "Add next step", new_recipe_direction_path(@recipe), class: "btn btn-default links" %>
         <% end %>
       <% end %>
     </div>
   </div>
-
+  <div class="mobile-nav">
+    <%= link_to "Delete Recipe", "#", class: "btn links" %>
+    <hr>
+    <%= link_to "Add New Recipe", "#", class: "btn links" %>
+    <hr>
+    <%= link_to "Sign Out", "#", class: "btn links" %>
+  </div>
 </div>
 
 
