@@ -185,25 +185,12 @@ label {
   transform: rotate(45deg);
 }
 
-
-@media (max-width: 1024px) {
-  .row-2 {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  .ingredients-container h2, .directions-container h2 {
-    text-align: center;
-    padding-bottom: 24px;
-  }
-  .links {
-    width: 100%;
-    text-align: center;
-  }
+.mobile-nav {
+  visibility: hidden;
 }
 
-@media (max-width: 768px) {
+
+@media (max-width: 1024px) {
   .row-1 {
     flex-direction: column;
     justify-content: center;
@@ -218,13 +205,34 @@ label {
   .show-description {
     padding-bottom: 32px !important;
     width: 100vw !important;
-    border-bottom: solid 1px #000;
+    // border-bottom: solid 1px #000;
   }
 
+  .row-2 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .ingredients-container h2, .directions-container h2 {
+    text-align: center;
+    padding-bottom: 24px;
+  }
+  .links {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
   .row-2 {
     margin-top: 40px;
   }
   .mobile-nav {
+    visibility: visible;
+
     display: flex;
     justify-content: space-evenly;
     width: 100vw;
