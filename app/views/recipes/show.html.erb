@@ -25,8 +25,6 @@
       <% if user_signed_in? && current_user === @recipe.user %>
         <div class="form-actions">
           <%= link_to "Edit", edit_recipe_path, class: "btn btn-default button" %>
-
-          <%= link_to "Delete #{@recipe.title}", recipe_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
           <% if @recipe.ingredients.any? %>
           <% else %>
               <%= link_to "Add some ingredients!", new_recipe_ingredient_path(@recipe), class: "btn btn-default button" %>
@@ -80,11 +78,13 @@
   </div>
   <div class="mobile-nav">
     <div>
-      <%= button_to "Delete #{@recipe.title}", recipe_path, method: :delete, onclick: "return confirm('Are you sure you want to delete this recipe?')", class: "btn links" %>
+      <%= button_to "Delete Recipe", recipe_path, method: :delete, onclick: "return confirm('Are you sure you want to delete this recipe?')", class: "btn links" %>
     </div>
+    <hr>
     <div>
       <%= link_to "Add New Recipe", "#", class: "btn links" %>
     </div>
+    <hr>
     <div>
       <%= link_to "Sign Out", "#", class: "btn links" %>
     </div>
