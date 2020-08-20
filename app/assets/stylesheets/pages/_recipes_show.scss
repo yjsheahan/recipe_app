@@ -105,10 +105,6 @@
   }
 }
 
-.phone {
-  visibility: hidden;
-}
-
 
 // CHECKBOXES FOR INGREDIENTS
 /* Customize the label (the container) */
@@ -186,7 +182,7 @@ label {
 }
 
 .mobile-nav {
-  visibility: hidden;
+  width: 100vw;
 }
 
 
@@ -230,13 +226,6 @@ label {
   .row-2 {
     margin-top: 40px;
   }
-  .mobile-nav {
-    visibility: visible;
-
-    display: flex;
-    justify-content: space-evenly;
-    width: 100vw;
-  }
 }
 
 @media (max-width: 600px) {
@@ -251,21 +240,11 @@ label {
   .direction-single h6 {
     padding-right: 24px;
   }
-  // .links a {
-  //   padding-bottom: 48px !important;
-  // }
-  // .phone {
-  //   visibility: visible;
-  // }
 }
 
 @media (max-width: 414px) {
   .ingredients-container, .directions-container {
     width: 280px !important;
   }
-  .mobile-nav {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+
 }
