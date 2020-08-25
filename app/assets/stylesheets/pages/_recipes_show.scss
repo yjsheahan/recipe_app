@@ -8,8 +8,6 @@
 
   background-color: #FFF;
 
-  padding-bottom: 24px;
-
   h1, p, span {
     text-align: center;
     margin: 0;
@@ -181,13 +179,20 @@ label {
   transform: rotate(45deg);
 }
 
+/* Nav at the bottom of the page all spread out */
 .mobile-nav {
-  display: flex !important;
-  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding-left: 32px !important;
-  padding-right: 32px !important;
-  visibility: visible;
+  padding: 16px;
+  width: 100vw;
+  border-top: solid 1px rgba(0,0,0,0.1);
+}
+
+.links {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
 }
 
 
@@ -221,18 +226,11 @@ label {
     text-align: center;
     padding-bottom: 24px;
   }
-  // .links {
-  //   width: 100%;
-  //   text-align: center;
-  // }
 }
 
 @media (max-width: 768px) {
   .row-2 {
     margin-top: 40px;
-  }
-  .mobile-nav {
-    flex-direction: column !important;
   }
 }
 
@@ -248,11 +246,14 @@ label {
   .direction-single h6 {
     padding-right: 24px;
   }
+  .mobile-nav {
+    flex-direction: column !important;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 414px) {
   .ingredients-container, .directions-container {
     width: 280px !important;
   }
-
 }
