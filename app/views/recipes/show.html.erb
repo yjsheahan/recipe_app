@@ -5,12 +5,12 @@
     <% if @recipe.image.attached? %>
       <%= cl_image_tag @recipe.image.key %>
     <% end %>
-    <div class="show-description l-padding">
+
+    <div class="show-description l-padding padding-bottom">
       <div>
         <h1 class="roboto head-b-padding"><%= @recipe.title %></h1>
         <p>
-          By
-          - <%= @recipe.user.name %>
+          By <%= @recipe.user.name %>
         <br>
           <%= @recipe.description %></p>
       </div>
@@ -40,7 +40,7 @@
 
 
   <div class="row-2">
-    <div class="ingredients-container">
+    <div class="ingredients-container white-background padding-bottom">
       <% if @recipe.ingredients.any? %>
         <h2 class="roboto head-b-padding">Ingredients</h2>
 <!--         <hr>
@@ -61,7 +61,7 @@
       <% end %>
     </div>
 
-    <div class="directions-container">
+    <div class="directions-container white-background padding-bottom">
       <% if @recipe.directions.any? %>
         <h2 class="roboto head-b-padding">Directions</h2>
         <% @recipe.directions.each_with_index do |direction, index| %>

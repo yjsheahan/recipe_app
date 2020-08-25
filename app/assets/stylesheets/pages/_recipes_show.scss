@@ -6,7 +6,8 @@
   flex-direction: column;
   align-items: center;
 
-  background-color: #FFF;
+  // background-color: rgba(229,201,214,0.2);
+  background-color: #F4F4F4;
 
   h1, p, span {
     text-align: center;
@@ -17,7 +18,21 @@
     font-weight: bold;
   }
 }
+.logo-home {
+  position: absolute;
+  top: 32px;
+  left: 48px;
+  h1 {
+    line-height: 0.75;
+    transition: font-size 0.8s ease;
+    font-size: 64px;
+  }
 
+  h1 span {
+    padding-left: 48px;
+    padding-bottom: 48px;
+  }
+}
 
 .row-1 {
   display: flex;
@@ -27,8 +42,6 @@
   img {
     width: 60vw;
     height: inherit;
-
-    // z-index: 3;
   }
   .show-description {
   display: flex;
@@ -39,9 +52,15 @@
 
   width: 40vw;
   padding: 0 24px;
+
+  background-color: #FFF;
   }
 }
 
+.description-box {
+  margin: 16px;
+  border: solid 1px #ccc;
+}
 // Sans Serif font for h1, h2 and h6 on the show page
 .roboto {
   font-family: "Roboto Condensed", "sans-serif", 'Helvetica';
@@ -54,12 +73,12 @@
   padding: 48px 0;
 }
 
-// .links {
-//   text-transform: uppercase;
-//   font-weight: bold;
-//   font-size: 12px;
-//   transition: text-decoration 0.8s ease;
-// }
+.links {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  transition: text-decoration 0.8s ease;
+}
 
 .show-buttons a:hover, .ingredients-container a:hover, .directions-container a:hover {
   text-decoration: underline;
@@ -76,6 +95,16 @@
   .directions-container {
     width: 480px;
   }
+}
+
+.padding-bottom {
+  padding-bottom: 40px !important;
+}
+
+.white-background {
+  background-color: #FFF;
+  padding: 0 40px;
+  height: fit-content;
 }
 
 .ingredients-container {
@@ -187,6 +216,7 @@ label {
   padding: 16px;
   width: 100vw;
   border-top: solid 1px rgba(0,0,0,0.1);
+  background-color: #FFF;
 }
 
 .links {
@@ -214,23 +244,28 @@ label {
     // border-bottom: solid 1px #000;
   }
 
-  .row-2 {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 0;
-  }
-
   .ingredients-container h2, .directions-container h2 {
     text-align: center;
     padding-bottom: 24px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 944px) {
   .row-2 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     margin-top: 40px;
+  }
+
+  .ingredients-container {
+    width: 440px;
+    margin-bottom: 40px;
+  }
+
+  .directions-container {
+    width: 536px !important;
   }
 }
 
@@ -240,8 +275,8 @@ label {
   }
   .directions-container {
     width: 360px !important;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
   .direction-single h6 {
     padding-right: 24px;
