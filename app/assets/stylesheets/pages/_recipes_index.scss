@@ -24,77 +24,50 @@
     flex-direction: column;
     // justify-content: center;
     align-items: center;
-    h1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-shadow: -4px 3px 0 #FFF;
-      font-size: 136px;
-      line-height: 0.8;
-      transition: font-size 0.8s ease;
-      margin: 0 0 32px 0;
-    }
   }
-  h6 {
-    font-size: 24px;
-    padding-left: 8vw;
+  .hero-content h1 {
     position: absolute;
-    top: 312px;
-    z-index: 3;
-    // just for now
-    display: none;
-    // left: 50%;
-    // transform: translate(-50%, 0);
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: -4px 3px 0 #FFF;
+    font-size: 136px;
+    line-height: 0.8;
+    transition: font-size 0.8s ease;
+    margin: 0 0 32px 0;
+  }
+  p {
+    font-size: 24px;
+    position: absolute;
+    top: 84%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-align: center !important;
   }
   span {
     padding-left: 56px;
     font-size: 160px;
   }
-
-  .hero-text {
+  img {
+    width: 320px;
     position: absolute;
-    top: 0;
-    left: 60%;
-    transform: translate(-60%, 0);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
-    line-height: 1;
-    padding-top: 32px;
-  }
-  .hero-text h4 {
-    font-size: 24px;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, 0);
+    z-index: 5;
   }
 }
 
-.member-buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 184px;
+.cupcake-svg {
+  height: 50vh;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
 }
-
-.member-buttons a {
-  text-transform: uppercase;
-  font-weight: bold;
-  background-color: #FFF;
-  border-radius: 24px;
-  border: solid 1px #000;
-  padding: 8px 16px;
-  font-size: 12px;
-  transition: background-color 0.8s ease;
-  transition: color 1s ease;
-  a:hover {
-    background-color: #000;
-    color: #FFF;
-    // border: solid 1px #FFF;
-  }
-}
-
 
 .recipes-index-container {
   width: 100vw;
@@ -132,7 +105,6 @@
   width: 280px;
   height: 280px;
   background-color: #FFF;
-  // border-radius: 96px;
   position: relative;
   z-index: 2;
 }
@@ -142,10 +114,11 @@
   img {
     width: 280px;
     height: 280px;
-    // border-radius: 96px;
-    border: solid 1px #FFF;
-    transition: opacity 0.8s ease;
-    transition: border 0.4s ease;
+    // transition: border 0.8s ease;
+    transition: opacity 0.4s ease;
+  }
+  img:hover {
+    opacity: 0.4;
   }
   .recipe-info {
     position: absolute;
@@ -168,38 +141,21 @@
   }
 }
 
-.recipe:hover {
-  img {
-    opacity: 0.2;
-    border: solid 1px #FFF;
-  }
-  .recipe-info {
-    visibility: visible;
-  }
-}
-
 .recipe-info p span {
   font-weight: bold;
 }
 
-// .cupcake-home {
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-//   width: 100vw;
-//   height: 110vh;
-//   z-index: 2;
-//   background-image: url('https://res.cloudinary.com/dpzjvi2w1/image/upload/v1597768826/cupcake-edit_seplnl.jpg');
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: top;
-//   opacity: 0.4;
-// }
-
 .bottom-row {
   position: absolute;
-  bottom: 24px;
-  left: 48px;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  height: 60px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
 }
 
 .bottom-row a {
@@ -208,16 +164,29 @@
   text-transform: uppercase;
   font-weight: bold;
   font-size: 12px;
+  cursor: pointer;
+  transition: font-size 0.8s ease;
 }
 
+.bottom-row a:hover {
+  font-size: 16px !important;
+}
 
 // JS classes
 .hero-content h1.scrolled {
   font-size: 24px;
-  transform: translate(-50%, 0);
   position: fixed;
-  top: 16px;
-  margin: 0;
+  top: 32px;
+  background-color: rgba(255,255,255,0.4);
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-top: 8px;
+  text-align: center;
+  padding: 8px;
 }
 
 // iPad Pro & iPad landscape
@@ -232,5 +201,24 @@
 @media (max-width: 768px) {
   .recipes-container {
     grid-template-columns: 1fr;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 414px) {
+  .hero .hero-content h1 {
+    font-size: 96px;
+  }
+  .hero-content h1.scrolled {
+    font-size: 24px;
+  }
+  .hero p {
+    letter-spacing: 2px;
+    top: 88%;
+  }
+  .hero img {
+    width: 264px;
   }
 }
