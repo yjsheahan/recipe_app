@@ -1,12 +1,11 @@
+<div class="signup-box">
+  <%= simple_form_for [@recipe, @ingredient] do |f| %>
+    <%= f.input :name, placeholder: "240ml of all purpose flour" %>
 
-  <div class="signup-box">
-    <%= simple_form_for [@recipe, @ingredient] do |f| %>
-      <%= f.input :name, placeholder: "240ml of all purpose flour" %>
-
-      <div class="form-actions">
-        <%= f.submit class: "btn btn-default button" %>
-        <%= link_to "Back to recipe", recipe_path(@recipe) %>
-      </div>
-    <% end %>
-  </div>
+    <div class="form-actions">
+      <%= f.submit class: "btn btn-default button" %>
+      <%= link_to "Back to recipe", recipe_path(@recipe) %>
+    </div>
+  <% end %>
+</div>
 
