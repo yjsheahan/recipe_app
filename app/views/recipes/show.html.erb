@@ -1,18 +1,29 @@
 <div class="show-container">
-
+  <div class="logo-circle">
+  </div>
+  <div class="logo-image">
+    <%= link_to root_path do %>
+      <%= cl_image_tag('https://res.cloudinary.com/dpzjvi2w1/image/upload/v1598477281/Vegan_Bakes_wkziry.png') %>
+    <% end %>
+  </div>
   <div class="row-1 flex">
 
     <% if @recipe.image.attached? %>
       <%= cl_image_tag @recipe.image.key %>
     <% end %>
+
     <div class="show-description l-padding">
       <div>
-        <h1 class="roboto head-b-padding"><%= @recipe.title %></h1>
-        <p>
-          By
-          - <%= @recipe.user.name %>
-        <br>
-          <%= @recipe.description %></p>
+        <p style="padding-top: 64px; text-transform: uppercase;
+    font-weight: bold;"><%= @recipe.user.name %>'s</p>
+        <span class="line"></span>
+        <h1 class="roboto head-b-padding" style="padding-top: 0 !important"><%= @recipe.title %></h1>
+        <hr>
+      </div>
+
+
+      <div>
+        <p><%= @recipe.description %></p>
       </div>
 
       <div class="show-numbers">
@@ -27,7 +38,7 @@
           <%= link_to "Edit", edit_recipe_path, class: "btn btn-default button" %>
           <% if @recipe.ingredients.any? %>
           <% else %>
-              <%= link_to "Add some ingredients!", new_recipe_ingredient_path(@recipe), class: "btn btn-default button" %>
+              <%= link_to "Add some ingredients!", new_recipe_ingredient_path(@recipe), remote: true, class: "btn btn-default button" %>
           <% end %>
           <% if @recipe.directions.any? %>
           <% else %>
@@ -35,6 +46,7 @@
           <% end %>
         </div>
       <% end %>
+
     </div>
   </div>
 
@@ -43,19 +55,22 @@
     <div class="ingredients-container">
       <% if @recipe.ingredients.any? %>
         <h2 class="roboto head-b-padding">Ingredients</h2>
-<!--         <hr>
- -->        <% @recipe.ingredients.each do |ingredient| %>
-          <label class="container">
-            <p><%= ingredient.name %></p>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-
+          <% @recipe.ingredients.each do |ingredient| %>
+            <label class="container">
+              <p><%= ingredient.name %></p>
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
           <hr>
-        <% end %>
+
+          <% end %>
 
         <% if user_signed_in? && current_user === @recipe.user %>
-          <%= link_to "Add another ingredient", new_recipe_ingredient_path(@recipe), class: "btn btn-default links" %>
+
+          <div class="new-ingredient">
+            <%= link_to "Add an ingredient", new_recipe_ingredient_path(@recipe), remote: true, class: "btn btn-default button links" %>
+          </div>
+
         <% end %>
 
       <% end %>
@@ -77,18 +92,33 @@
     </div>
   </div>
   <div class="mobile-nav">
-    <div>
-      <%= button_to "Delete Recipe", recipe_path, method: :delete, onclick: "return confirm('Are you sure you want to delete this recipe?')", class: "btn links" %>
+      <% if user_signed_in? %>
+        <% if current_user === @recipe.user %>
+          <div>
+            <%= button_to "Delete Recipe", recipe_path, method: :delete, onclick: "return confirm('Are you sure you want to delete this recipe?')", class: "btn links" %>
+          </div>
+          <hr>
+        <% end %>
+        <div>
+          <%= link_to "Add New Recipe", new_recipe_path, class: "btn links" %>
+        </div>
+        <hr>
+        <div>
+          <%= link_to "Sign Out", destroy_user_session_path, class: "btn links" %>
+        </div>
+      <% else %>
+      <div>
+        <%= link_to "Log in", new_user_session_path, class: "btn links" %>
+      </div>
+      <div>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn links" %>
+      </div>
+<!--       <div>
+
+      </div> -->
+      <% end %>
     </div>
-    <hr>
-    <div>
-      <%= link_to "Add New Recipe", "#", class: "btn links" %>
-    </div>
-    <hr>
-    <div>
-      <%= link_to "Sign Out", "#", class: "btn links" %>
-    </div>
-  </div>
+
 </div>
 
 

@@ -1,7 +1,5 @@
 /* Hero styling */
 
-
-
 .hero {
   height: 100vh;
   width: 100%;
@@ -46,6 +44,7 @@
     font-weight: bold;
     letter-spacing: 4px;
     text-align: center !important;
+    z-index: 5;
   }
   span {
     padding-left: 56px;
