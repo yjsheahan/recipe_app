@@ -1,4 +1,6 @@
 class IngredientsController < ApplicationController
+  protect_from_forgery
+
   before_action :find_recipe
 
   def new
