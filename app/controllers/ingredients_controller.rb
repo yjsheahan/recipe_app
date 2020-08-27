@@ -23,13 +23,19 @@ class IngredientsController < ApplicationController
 
   def update
     @ingredient = Ingredient.find(params[:id])
-    @ingredient.update(ingredient_params)
+    @ingredient.recipe = @recipe
+
+    if @ingredient.update(ingredient_params)
+      redirect_to recipe_path(@recipe)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @ingredient = Ingredient.find(params[:id])
     @ingredient.destroy
-    redirect_to recipe_path(@recipe), notice: "Successfully deleted ingredient."
+    redirect_to recipe_path(@ingredient.recipe), notice: "Successfully deleted ingredient."
   end
 
   private

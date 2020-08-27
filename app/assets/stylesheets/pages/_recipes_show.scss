@@ -29,11 +29,13 @@
   left: 40px;
 }
 
+
 .logo-image img {
   width: 88px;
   position: fixed;
   top: 16px;
   left: 32px;
+  z-index: 5;
 }
 
 
@@ -281,5 +283,11 @@ label {
 @media (max-width: 414px) {
   .ingredients-container, .directions-container {
     width: 280px !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none;
   }
 }
